@@ -4,6 +4,4 @@
   var output = input.match(/.{1,70}/g);
   var cow = cowsay.say(output);
   console.log(cow);
-
-  module.exports =  input;
 }());
