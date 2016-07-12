@@ -1,22 +1,26 @@
 (function(){
   var cowsay = {};
-  cowsay.text = 'asdasdasdasdasdasdasdasdasdasdasdasdasdasdasd';
 
-  cowsay.say = function(text) {
+  cowsay.say = function(input) {
+    var output = input.match(/.{1,70}/g);
+    var cowsayText = '';
+    for (var i = 0; i < output.length; i++) {
+      cowsayText += ` ${output[i]} \n`;
+    }
+
     var cow =
-      `  ${'_'.repeat(text.length)}  \n` +
-      `/${'-'.repeat(text.length + 2)}\\\n` +
-      `| ${text} |\n` +
-      `\\${'-'.repeat(text.length + 2)}/\n` +
-      `  ${'-'.repeat(text.length)}\n` +
-      `    \\   ^__^\n` +
-      `    \\   (oo)\_______\n` +
-      `        (__)\\       )\\/\\\n` +
-      `           ||----w |\n` +
-      `           ||     ||\n`;
-    console.log(cow);
-    console.log(text);
-  }(cowsay.text);
+      `  ${'-'.repeat(output[0].length)}  \n` +
+      `/${'-'.repeat(output[0].length + 2)}\\\n` +
+      `${cowsayText}` +
+      `\\${'-'.repeat(output[0].length + 2)}/\n` +
+      `  ${'-'.repeat(output[0].length)}\n` +
+      `${' '.repeat(output[0].length / 2)}\\   ^__^\n` +
+      `${' '.repeat(output[0].length / 2)}\\   (oo)\_______\n` +
+      `${' '.repeat(output[0].length / 2 + 4)}(__)\\       )\\/\\\n` +
+      `${' '.repeat(output[0].length / 2 + 8)}||----w |\n` +
+      `${' '.repeat(output[0].length / 2 + 8)}||     ||\n`;
+    return cow;
+  };
 
   module.exports = cowsay;
 }());
