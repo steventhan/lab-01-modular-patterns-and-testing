@@ -1,15 +1,14 @@
 (function(){
   var cowsay = {};
 
-  cowsay.say = function(input) {
-    var output = input.match(/.{1,70}/g);
+  cowsay.say = function(output) {
     var cowsayText = '';
     for (var i = 0; i < output.length; i++) {
       cowsayText += ` ${output[i]} \n`;
     }
 
     var cow =
-      `  ${'-'.repeat(output[0].length)}  \n` +
+      `\n  ${'-'.repeat(output[0].length)}  \n` +
       `/${'-'.repeat(output[0].length + 2)}\\\n` +
       `${cowsayText}` +
       `\\${'-'.repeat(output[0].length + 2)}/\n` +
